@@ -3,8 +3,15 @@
 
 #include <QMainWindow>
 #include <QColor>
-#include <QGraphicsView>
+#include <QPIxmap>
+#include <QPainter>
 #include <QGraphicsScene>
+#include <QThread>
+#include <mutex>
+#include <QGraphicsView>
+#include <QTimer>
+#include <thread>
+
 
 
 
@@ -21,13 +28,18 @@ public:
     ~MainWindow();
 
     void Draw();
+    void DrawThraed();
 
-
+    std::thread networkThread;
+    std::mutex networkMutex;
+    QPixmap pixmap;
+   // QGraphicsScene scene;
     double x, y, z;
     QColor color;
 
+    QTimer* timer;
 
-
+    void UpdateLabel();
 
 private:
     Ui::MainWindow *ui;
