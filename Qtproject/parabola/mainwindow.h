@@ -4,11 +4,7 @@
 #include <QMainWindow>
 #include <QColor>
 #include <QPIxmap>
-#include <QPainter>
-#include <QGraphicsScene>
-#include <QThread>
 #include <mutex>
-#include <QGraphicsView>
 #include <QTimer>
 #include <thread>
 
@@ -33,9 +29,9 @@ public:
     std::thread networkThread;
     std::mutex networkMutex;
     QPixmap pixmap;
-   // QGraphicsScene scene;
-    double x, y, z;
-    QColor color;
+
+
+    QImage image;
 
     QTimer* timer;
 
